@@ -5,7 +5,7 @@ export const validUser: User = {
   password: 'SuperSecretPassword!'
 };
 
-export const invalidUsers = {
+export const invalidUserMap: Record<string, User> = {
   wrongUsername: {
     username: 'wrongUser',
     password: 'SuperSecretPassword!'
@@ -14,7 +14,7 @@ export const invalidUsers = {
     username: 'tomsmith',
     password: 'wrongPass'
   },
-  emptyCredentials: {
+  empty: {
     username: '',
     password: ''
   },

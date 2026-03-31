@@ -5,16 +5,9 @@ export class AuthFlow {
   constructor(private loginPage: LoginPage) {}
 
   async login(user: User) {
-    await this.loginPage.goto();
+ await this.loginPage.fillUsername(user.username);
+await this.loginPage.fillPassword(user.password);
 
-    if (user.username) {
-      await this.loginPage.fillUsername(user.username);
-    }
-
-    if (user.password) {
-      await this.loginPage.fillPassword(user.password);
-    }
-
-    await this.loginPage.clickLogin();
-  }
+  await this.loginPage.clickLogin();
+}
 }

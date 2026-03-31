@@ -7,13 +7,13 @@ Feature: Login
 
   Scenario Outline: Invalid login attempts
     Given I am on the login page
-    When I login with username "<username>" and password "<password>"
+    When I login with invalid "<type>" credentials
     Then I should see an error message
 
     Examples:
-      | username   | password              |
-      | wrongUser  | SuperSecretPassword!  |
-      | tomsmith   | wrongPass             |
-      |            |                       |
-      |            | SuperSecretPassword!  |
-      | tomsmith   |                       |
+      | type            |
+      | wrongUsername   |
+      | wrongPassword   |
+      | empty           |
+      | emptyUsername   |
+      | emptyPassword   |
