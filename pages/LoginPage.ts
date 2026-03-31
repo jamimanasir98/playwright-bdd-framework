@@ -23,4 +23,11 @@ export class LoginPage {
   async getFlashMessage() {
     return this.page.locator('#flash').textContent();
   }
+  async isSuccessMessageVisible() {
+  return this.page.locator('#flash.success').isVisible();
+}
+
+async isErrorMessageVisible() {
+  return this.page.locator('#flash.error').isVisible();
+}
 }
