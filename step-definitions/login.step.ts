@@ -7,7 +7,7 @@ Given('I am on the login page', async function () {
 });
 
 When('I login with valid credentials', async function () {
-  await this.authFlow.login(validUser);
+  await this.loginPage.login(validUser);
 });
 
 When(
@@ -19,15 +19,15 @@ When(
       throw new Error(`Invalid test data type: ${type}`);
     }
 
-    await this.authFlow.login(user);
+    await this.loginPage.login(user);
   }
 );
 
 Then('I should see a success message', async function () {
-  await expect(await this.loginPage.isSuccessMessageVisible()).toBeTruthy();
+  expect(await this.loginPage.isSuccessMessageVisible()).toBeTruthy();
   await expect(this.page).toHaveURL(/secure/);
 });
 
 Then('I should see an error message', async function () {
-  await expect(await this.loginPage.isErrorMessageVisible()).toBeTruthy();
+  expect(await this.loginPage.isErrorMessageVisible()).toBeTruthy();
 });
