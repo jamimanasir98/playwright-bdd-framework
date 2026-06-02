@@ -1,5 +1,6 @@
 import { Page } from 'playwright';
 import { config } from '../utils/config';
+import { User } from '../models/User';
 
 export class LoginPage {
   constructor(private page: Page) {}
@@ -20,14 +21,25 @@ export class LoginPage {
     await this.page.click('button[type="submit"]');
   }
 
+  async login(user: User) {
+    await this.fillUsername(user.username);
+    await this.fillPassword(user.password);
+    await this.clickLogin();
+  }
+
   async getFlashMessage() {
     return this.page.locator('#flash').textContent();
   }
-  async isSuccessMessageVisible() {
-  return this.page.locator('#flash.success').isVisible();
-}
 
-async isErrorMessageVisible() {
-  return this.page.locator('#flash.error').isVisible();
-}
+  async isSuccessMessageVisible() {
+    return this.page.locator('#flash.success').isVisible();
+  }
+
+  async isErrorMessageVisible() {
+    return this.page.locator('#flash.error').isVisible();
+  }
+
+  async isLogoutMessageVisible() {
+    return this.page.locator('#flash.success').isVisible();
+  }
 }

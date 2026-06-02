@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "test": "cucumber-js --require-module ts-node/register --require step-definitions/**/*.ts --require fixtures/**/*.ts"},
+  "test": "cucumber-js --require-module ts-node/register --require support/**/*.ts --require step-definitions/**/*.ts --format html:reports/report.html --format progress"},
   "keywords": [],
   "author": "",
   "license": "ISC",
